@@ -43,11 +43,11 @@
 %
 % if BibLaTeX is used
 %
-\ifboolexpr{bool{jacowbiblatex}}%
- {%
-%   \addbibresource{refs.bib}
-  %\addbibresource{biblatex-examples.bib}
- }{}
+% \ifboolexpr{bool{jacowbiblatex}}%
+%  {%
+% %   \addbibresource{refs.bib}
+%   %\addbibresource{biblatex-examples.bib}
+%  }{}
 \listfiles
 
 %%
@@ -73,9 +73,9 @@ SIRIUS is the 4th generation storage ring-based synchrotron light source built a
 
 
 \section{INTRODUCTION}
-At SIRIUS storage ring, the incoming beam is delivered at $x=-8.4~\unit{mm}$ where it is kicked by the NLK and captured into the ring acceptance. During the design phase, tracking simulations for this setup predicted a 99\% injection efficiency, considering a horizontal dynamic aperture of $-9~\unit{mm}$ in the horizontal plane [reference]. This aperture was estimated from the model with the optimized nonlinear lattice configurations [reference to opt work] and realistic errors. This same lattice was implemented in the machine during commissioning and currently renders an injection efficiency of about 85\% with corrected linear optics and coupling. With plans for SIRIUS storage ring to operate in top-up injection mode starting April 2023 (? not sure), it became imperative to improve the DA to achieve a high and reliable injection efficiency of a least $95\%$. 
+At SIRIUS storage ring, the incoming beam is delivered at $x=-8.4~\unit{mm}$ where it is kicked by the NLK and captured into the ring acceptance. During the design phase, tracking simulations for this setup predicted a 99\% injection efficiency, considering a horizontal dynamic aperture of $-9~\unit{mm}$ in the horizontal plane \cite{Liu:IPAC2016-THPMR011}. This aperture was estimated from the model with the optimized nonlinear lattice configurations and realistic errors \cite{deSá:IPAC2016-THPMR012}. This same lattice was implemented in the machine during commissioning and currently renders an injection efficiency of about 85\% with corrected linear optics and coupling. With plans for SIRIUS storage ring to operate in top-up injection mode starting April 2023 (? not sure), it became imperative to improve the DA to achieve a high and reliable injection efficiency of a least $95\%$. 
 
-Following recent experiences in other synchrotron facilities [references], online optimization was applied on the storage ring nonlinear lattice to mitigate the discrepancies between the model and the machine nonlinear dynamics performances. The experiments were carried using the Robust Conjugate Direction Search (RCDS) algorithm [reference], with the injection efficiency as objective function to be maximized upon changes of SIRIUS sextupole families. The lattice was optimized in the nominal operation point with tunes $(49.08, 14.14)$, as well as in a new operation point of $(49.20, 14.25)$.  These shall be referred to as Operation Points 1 and 2, respectively. Operation point 2 has drawn attention since recent measurements indicated it can mitigate the effects orbit perturbations, reducing by half the integrated power spectrum of the beam post the $60~\unit{Hz}$ frequency.   
+Following recent experiences in other synchrotron facilities \cite{Huang:2015, Liuzzo:IPAC2016-THPMR015, Olsson:IPAC2018-WEPAL047, yang:ipac2022-tupopt064} online optimization was applied on the storage ring nonlinear lattice to mitigate the discrepancies between the model and the machine nonlinear dynamics performances. The experiments were carried using the Robust Conjugate Direction Search (RCDS) algorithm \cite{Huang:2013}, with the injection efficiency as objective function to be maximized upon changes in SIRIUS sextupole families strengths. The lattice was optimized in the nominal operation point with tunes $(49.08, 14.14)$, as well as in a new operation point of $(49.20, 14.25)$, which shall be referred to as Operation Points 1 and 2, respectively. Operation point 2 has drawn attention since recent measurements indicated it can mitigate the effects of orbit perturbations, reducing by half the integrated power spectrum of the beam post the $60~\unit{Hz}$ frequency.   
 
 \section{SIRIUS NONLINEAR LATTICE}
  SIRIUS storage ring consists on a 20-cell five-bend-achromat (5BA) lattice with natural emittance of $0.25~\si{nm rad}$ at $3~\unit{GeV}$. The 5BA lattice design comprises a 5-fold symmetric configuration with alternating high and low horizontal betatron functions. A superperiod is composed of one high-beta and 3 low beta sections: A-B-P-B. The B and P low-beta sections are identical as far as first order optics is concerned; they differ in second order optics, i.e., the sextupoles are different. There 6 achromatic sextupole families and 15 chromatic families. Figure \ref{fig:sirius} shows the lattice periods. (keep figure? anything relevant info missing?)
@@ -149,7 +149,7 @@ TbT data at increasing horizontal dipolar kicks for each configuration was acqui
 
 \begin{figure}
    \includegraphics[width=\columnwidth]{new_tunes_phase.pdf}
-   \caption{Phase portraits reconstruction by fitting of TbT data collected for each configuration at kicks providing loss rates of $\geq 50\%$ in operation point 2. Color code indicates the turns. Horizontal dipole kicks for non-optimized: $~\unit{\micro rad}$, run 1: $~\unit{\micro rad}$, run 2: $~\unit{\micro rad}$. Correct ref. config to non-optimized. Correct colormap.}
+   \caption{Phase portraits reconstruction by fitting of TbT data collected for each configuration at kicks providing loss rates of $\geq 50\%$ in operation point 2. Color code indicates the turns. Horizontal dipole kicks for non-optimized: $~\unit{\micro rad}$, run 1: $~\unit{\micro rad}$, run 2: $~\unit{\micro rad}$. Correct ref. config to non-optimized. Correct colormap to viridis.}
    \label{fig:newtunes_phase}
 \end{figure}
 
@@ -183,42 +183,70 @@ Mention more recent attempts at the newest newtunes?
 % \ifboolexpr{bool{jacowbiblatex}}%
 % 	{\printbibliography}%
 % 	{%
-% 	% "biblatex" is not used, go the "manual" way
+	% "biblatex" is not used, go the "manual" way
 	
-% 	%\begin{thebibliography}{99}   % Use for  10-99  references
-% 	\begin{thebibliography}{9} % Use for 1-9 references
+	%\begin{thebibliography}{99}   % Use for  10-99  references
+	\begin{thebibliography}{9} % Use for 1-9 references
 	
-% 	\bibitem{Safranek:1997}
-% 		J. Safranek,
-% 		\textquotedblleft{Experimental Determination of Storage Ring Optics Using Orbit Response Measurements}\textquotedblright,
-% 		\emph{Nucl.  Instr. Meth.}, vol 388, pp. 27--36, 1997.
-%         \url{doi:10.1016/S0168-9002(97)00309-4} 
         
 %     \bibitem{Alves:IPAC21-MOPAB260}
 %        M. B. Alves,
 %        \textquotedblleft{Optics Corrections with LOCO on Sirius Storage Ring}\textquotedblright,
 %        in \emph{Proc. IPAC’21}, Campinas, Brazil, May 2021, pp. 825--828.
 %        \url{doi:10.18429/JACoW-IPAC2021-MOPAB260} 
+
+    \bibitem{Liu:IPAC2016-THPMR011}
+        L. Liu, X.R. Resende, A.R.D. Rodrigues, F. H. de Sá,
+       \textquotedblleft{{I}njection {D}ynamics for {S}irius {U}sing a {N}onlinear {K}icker}\textquotedblright,
+       in \emph{Proc. IPAC’16}, Busan, Korea, May 2016, pp. 3406--3408.
+       \url{doi:10.18429/JACoW-IPAC2016-THPMR011} 
+ 
+    \bibitem{deSá:IPAC2016-THPMR012}
+        F. H. de Sá, L. Liu, X.R. Resende,
+       \textquotedblleft{{O}ptimization of {N}onlinear {D}ynamics for {S}irius}\textquotedblright,
+       in \emph{Proc. IPAC’16}, Busan, Korea, May 2016, pp. 3409--3412.
+       \url{doi:10.18429/JACoW-IPAC2016-THPMR012}       
        
-%     \bibitem{Martin:IPAC14-TUPRI083}
-%        I. P. S. Martin, M. G. Abbott, R. Bartolini, M. J. Furseman, and G. Rehm,
-%        \textquotedblleft{A Fast Optics Correction for the Diamond Storage Ring}\textquotedblright,
-%        in \emph{Proc. IPAC’14}, Dresden, Germany, Jun. 2014, pp. 1763--1765.
-%        \url{doi:10.18429/JACoW-IPAC2014-TUPRI083}      
+	\bibitem{Huang:2013}
+		X. Huang, J. Corbett, J. Safranek, J. Wu,
+		\textquotedblleft{An algorithm for online optimization of accelerators}\textquotedblright,
+		\emph{Nucl.  Instr. Meth.}, vol 726, pp. 77--83, 2013.
+        \url{https://doi.org/10.1016/j.nima.2013.05.046} 
+
+    \bibitem{Huang:2015}
+		X. Huang, J. Safranek,
+		\textquotedblleft{Online optimization of storage ring nonlinear beam dynamics}\textquotedblright,
+		\emph{Phys. Rev. ST Accel. Beams}, vol 18, p. 18, .
+        \url{10.1103/PhysRevSTAB.18.084001} 
  
-%     \bibitem{Marti:IPAC17-MOPAB102}
-%        Z. Martí \emph{et al.},
-%        \textquotedblleft{Fast Orbit Response Matrix Measurements at ALBA}\textquotedblright,
-%        in \emph{Proc. IPAC’17}, Copenhagen, Denmark, May 2017, pp. 365--367.
-%        \url{doi:10.18429/JACoW-IPAC2017-MOPAB102}       
+    \bibitem{Liuzzo:IPAC2016-THPMR015}
+        S.M. Liuzzo, \emph{et al.},
+        \textquotedblleft{RCDS Optimizations for the ESRF Storage Ring}\textquotedblright,
+        in \emph{Proc. IPAC’16}, Busan, Korea, May 2016, pp. 3420--3423.
+       \url{doi:10.18429/JACoW-IPAC2016-THPMR015}   
     
-%     \bibitem{Yang:2017}
-% 		X. Yang, V. Smaluk,  L. H. Yu, Y. Tian,  K. Ha,
-% 		\textquotedblleft{Fast and precise technique for magnet lattice correction via sine-wave excitation of fast correctors}\textquotedblright,
-% 		\emph{Phys. Rev. ST Accel. Beams}, vol 20, p. 054001, May 2017.
-%         \url{doi:10.1103/PhysRevAccelBeams.20.054001} 
- 
-% 	\end{thebibliography}
+    \bibitem{Olsson:IPAC2018-WEPAL047}
+       D.K. Olsson,
+       \textquotedblleft{Online Optimisation of the MAX IV 3 GeV Ring Dynamic Aperture}\textquotedblright,
+    % --- abbreviated form (published paper) - JACoW template Feb 2018 ---
+       in \emph{Proc. IPAC'18}, Vancouver, BC, Canada, Apr. 4,, pp. 2281--2283,
+       \url{doi:10.18429/JACoW-IPAC2018-WEPAL047}
+    % --- complete form (published paper) - JACoW template Feb 2018 ---
+    %  in \emph{Proc. 9th International Particle Accelerator Conference (IPAC'18)}, Vancouver, BC, Canada, Apr. 4,,
+    %  pp. 2281--2283, \url{doi:10.18429/JACoW-IPAC2018-WEPAL047}
+    % --- additional material ---
+    %  ISBN: 978-3-95450-184-7, \url{http://jacow.org/ipac2018/papers/wepal047.pdf}
+    
+    \bibitem{yang:ipac2022-tupopt064}
+        X. Yang,\emph{et al.},
+       \textquotedblleft{Online Optimization of NSLS-II Dynamic Aperture and Injection Transient}\textquotedblright,
+        in \emph{Proc. IPAC'22}, Bangkok, Thailand, Jun. 2022, pp. 1159--1162.
+    % --- complete form (published paper) - JACoW template Feb 2018 ---
+    %  in \emph{Proc. 13th International Particle Accelerator Conference (IPAC'22)}, Bangkok, Thailand, Jun. 2022, pp. 1159--1162.
+       \url{doi:10.18429/JACoW-IPAC2022-TUPOPT064}
+    
+   
+	\end{thebibliography}
 
 % } % end \ifboolexpr
 %
