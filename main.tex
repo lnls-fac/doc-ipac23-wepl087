@@ -69,15 +69,15 @@
 \maketitle
 %
 \begin{abstract}
-SIRIUS is the 4th generation storage ring-based synchrotron light source built and operated by the Brazilian Synchrotron Light Laboratory (LNLS). Beam accumulation at SIRIUS storage ring occurs in an off-axis scheme, using a nonlinear kicker (NLK), for which the efficiency depends on a sufficiently large dynamic aperture (DA). During the commissioning phase, the lattice configurations found by optimization of the model's DA and energy acceptance were implemented and rendered the machine an average injection efficiency of 85\%. DA measurements also indicated a smaller aperture than predicted by the model, signaling the necessity of further optimization of the machine. 
-%This work presents the results of online optimization of SIRIUS nonlinear dynamics with the aim of increasing the machine's dynamic aperture and injection efficiency without compromising the off-momentum acceptance and Touschek lifetime. (initial abstract last sentence.)
-This work reports on the application of online optimization using the Robust Conjugate Direction Search (RCDS) algorithm on SIRIUS sextupoles, which resulted in improvements to injection efficiency and DA in two different machine working tunes. 
+SIRIUS is the 4th generation storage ring-based synchrotron light source built and operated by the Brazilian Synchrotron Light Laboratory (LNLS). Beam accumulation at SIRIUS storage ring occurs in an off-axis scheme, using a nonlinear kicker (NLK), for which the efficiency depends on a sufficiently large dynamic aperture (DA). 
+%During the commissioning phase, the lattice configurations found by optimization of the model's DA and energy acceptance were implemented and rendered the machine an average injection efficiency of 85\%. DA measurements also indicated a smaller aperture than predicted by the model, signaling the necessity of further optimization of the machine. 
+This work reports on the application of online optimization using the Robust Conjugate Direction Search (RCDS) algorithm on SIRIUS sextupoles, which resulted in improvements to injection efficiency (IE) and DA in three different machine working tunes. 
 \end{abstract}
 
 \section{INTRODUCTION}
-At SIRIUS storage ring, the injected beam is delivered at $x=-8.4~\unit{mm}$ where it is kicked by the NLK and captured into the ring acceptance. During the design phase, tracking simulations for this setup predicted a 99\% injection efficiency \cite{Liu:IPAC2016-THPMR011}, considering a horizontal dynamic aperture of $-9~\unit{mm}$  estimated from the model with the optimized nonlinear lattice and realistic errors \cite{deSá:IPAC2016-THPMR012}.  The corresponding sextupole settings were implemented in the machine during commissioning and currently renders an injection efficiency of about 85\%, with a large variability of $~\pm8\%$. With the start of operations with top-up injection in March 2023, efforts to increase the DA to achieve a high and reliable (repeatable) injection efficiency were intensified. 
+At SIRIUS storage ring, the injected beam is delivered at $x=-8.4~\unit{mm}$ where it is kicked by the NLK and captured into the ring acceptance. During the design phase, tracking simulations for this setup predicted a 99\% IE \cite{Liu:IPAC2016-THPMR011}, considering a horizontal dynamic aperture of $-9~\unit{mm}$  estimated from the model with the optimized nonlinear lattice and realistic errors \cite{deSá:IPAC2016-THPMR012}.  The corresponding sextupole settings were implemented in the machine during commissioning and currently renders an IE of about 85\%, with a large variability of $~\pm8\%$. With the start of operations with top-up injection in March 2023, efforts to increase the DA to achieve a high and reliable (repeatable) IE were intensified. 
 
-Following the experiences from other synchrotron facilities \cite{Huang:2015, Liuzzo:IPAC2016-THPMR015, Olsson:IPAC2018-WEPAL047, yang:ipac2022-tupopt064}, online optimization was applied to SIRIUS storage ring to improve the ring dynamic aperture. The experiments were carried using the RCDS algorithm \cite{Huang:2013}, with the injection efficiency as objective function to be maximized upon changes in SIRIUS sextupole families strengths. The lattice was optimized in the nominal working point with horizontal and vertical tunes of $(49.08, 14.14)$, as well as in a new working point of $(49.20, 14.25)$, which throughout this text will be referred to as working points 1 and 2, respectively. Operating in this working point 2 with higher fractional betatron tunes is under study since it is beneficial for the orbit stability.
+Following the experiences from other synchrotron facilities \cite{Huang:2015, Liuzzo:IPAC2016-THPMR015, Olsson:IPAC2018-WEPAL047, yang:ipac2022-tupopt064}, online optimization was applied to SIRIUS storage ring to improve the ring dynamic aperture. The experiments were carried using the RCDS algorithm \cite{Huang:2013}, with the IE as objective function to be maximized upon changes in SIRIUS sextupole families strengths. The lattice was optimized in the nominal working point (WP) with horizontal and vertical tunes of $(49.08, 14.14)$, as well as in the $(49.20, 14.25)$ and $(49.16, 14.22)$  WPs, which throughout this text will be referred to as WPs 1, 2 and 3, respectively. A new WP with higher fractional betatron tunes is of interest to improve the orbit stability.
 
 \section{SIRIUS NONLINEAR LATTICE}
  SIRIUS storage ring consists on a 20-cell five-bend-achromat (5BA) lattice 
@@ -86,11 +86,11 @@ Following the experiences from other synchrotron facilities \cite{Huang:2015, Li
 \section{OPTIMIZATION EXPERIMENTS}
 
 \subsection{Optimization in Working Point 1}
-The RCDS objective function was the average injection efficiency of five injection pulses at $2~\unit{Hz}$, with a noise sigma of $\sigma \approx 1\%$. The beam was injected with a horizontal offset larger than the usual so the efficiency would drop to $30$-$40\%$, giving room for improvements. The on-axis dipole kicker (DipK), which is immediately upstream the NLK \cite{Liu:IPAC2016-THPMR011}, was used to capture the injected beam. The motivation to use the DipK is that its field profile should be less sensitive to injection conditions variations than the NLK field. In this way, variations of injection efficiency should be mainly related to changes in the DA.
+The RCDS objective function was the average IE of five injection pulses at $2~\unit{Hz}$, with a noise sigma of $\sigma \approx 1\%$. The beam was injected with a horizontal offset larger than the usual so the IE would drop to $30$-$40\%$, giving room for improvements. The on-axis dipole kicker (DipK), which is immediately upstream the NLK \cite{Liu:IPAC2016-THPMR011}, was used to capture the injected beam. The motivation to use the DipK is that its field profile should be less sensitive to injection conditions variations than the NLK field. In this way, variations of IE should be mainly related to changes in the DA.
 
 The optimization knobs consisted of the 6 achromatic sextupole families and linear combinations of the chromatic families. Families SFP1 and SFB1 were not included as knobs since they operate close to their upper limit of strength, where hysteresis effects become significant.  Families SDA1, SFA1, SDA2, SDA3, SFA2 were varied independently, while the constrained pairs SDB1 \& SDP1, SDB2 \& SDP2, SFB2 \& SFP2, SDB3 \& SDP3 formed other 4 knobs, resulting in a 9-dimensional search space composed by chromatic sextupoles. The 7-dimensional null space of the chromaticity response matrix with respect to changes in the 9 knobs was calculated using the SIRIUS model and the right-singular vectors spanning it, i.e., those associated with vanishing singular values, were used as knobs. The resulting parameter space consisted on 13 knobs. 
 
-With this setup, three optimization runs were performed. In run 1, RCDS improved the efficiency from $\sim40\%$ to $\sim80\%$. Starting from the best configuration found, the injection efficiency was intentionally worsened by further increasing the horizontal offset and another run was started, taking the efficiency from $\sim60\%$ to $\sim70\%$. The same procedure was repeated for run 3, with the difference that the machine magnets were standardized prior to applying the best solution. In run 3, efficiency was optimized from $\sim30\%$ to $\sim60\%$.
+With this setup, three optimization runs were performed. In run 1, RCDS improved the IE from $\sim40\%$ to $\sim80\%$. Starting from the best configuration found, the IE was intentionally worsened by further increasing the horizontal offset and another run was started, taking the IE from $\sim60\%$ to $\sim70\%$. The same procedure was repeated for run 3, with the difference that the machine magnets were standardized prior to applying the best solution. In run 3, IE was optimized from $\sim30\%$ to $\sim60\%$.
  
 % runs 1, 2 and 3 are generic names I'm using for the paper only. They correspond to data from friday, february 24. 
 % Run 1 consits on the optimization files `rcds_run4_13knobs_dipole_kicker.pickle` + `rcds_run4_13knobs_dipole_kicker_second.pickle` objective history
@@ -98,7 +98,7 @@ With this setup, three optimization runs were performed. In run 1, RCDS improved
 % Run 3 consists on `rcds_run5_13knobs_dipole_kicker.pickle`
 \begin{figure}[!h]
    \includegraphics[width=\columnwidth]{WEPL087_f1.pdf}
-   \caption{Current losses vs. horizontal dipole kick for the ref. config. and for the RCDS solutions at working point 1.}
+   \caption{Current losses vs. horizontal dipole kick for the ref. config. and for the RCDS solutions at WP 1.}
    \label{fig:loss_kicks}
 \end{figure}
 For each one of the best configurations found during runs 1, 2 and 3 and also for the reference configuration (ref. config.), turn-by-turn (TbT) BPM data of the stored beam kicked with the horizontal dipolar kicker were acquired. The DCCT current monitor allowed the determination of the current losses as a function of the horizontal kicks, which is shown by Figure~\ref{fig:loss_kicks}. 
@@ -108,16 +108,16 @@ Figure~\ref{fig:oldtunes_phase} shows the measured phase spaces for the ref. con
 \begin{figure}[!h]
     \centering
     \includegraphics[width=\columnwidth]{WEPL087_f2.pdf}
-    \caption{Measured phase space at SA05 high-beta straight section for the ref. config. and the best RCDS configurations of runs 1, 2 and 3 in working point 1. Color-map indicates the turns. The areas are in $\unit{mm}~\unit{mrad}$. The beam was being kicked horizontally at $730~\unit{\micro rad}$ in the ref. config, $790~\unit{\micro rad}$ in run 1, $780~\unit{\micro rad}$ in run 2, and $770~\unit{\micro rad}$, in run 3. Loss rates of  $12\%, 11\%, 13\%$ and $13\%$.} 
+    \caption{Measured phase space at SA05 high-beta straight section for the ref. config. and the best RCDS configurations of runs 1, 2 and 3 in WP 1. Color-map indicates the turns. The areas are in $\unit{mm}~\unit{mrad}$. The beam was being kicked horizontally at $730~\unit{\micro rad}$ in the ref. config, $790~\unit{\micro rad}$ in run 1, $780~\unit{\micro rad}$ in run 2, and $770~\unit{\micro rad}$, in run 3. Loss rates of  $12\%, 11\%, 13\%$ and $13\%$.} 
     \label{fig:oldtunes_phase}
 \end{figure}
-Table~\ref{table1} compiles the injection efficiency achieved for each configuration during off-axis NLK injection in normal injection conditions ($x\approx -8.5~\unit{mm}$, $x^\prime\approx 0 $). 
-Interestingly, the configuration with the largest kick resilience, that of run 1, is not the one with the largest phase space area and injection efficiency performance. This could be explained if the phase space deformations of the ellipse at the kicker location for this sextupole setting resulted in a larger $x^\prime/x$ ratio, which would account for a larger kick acceptance and the worse injection performance compared to run 2. 
+Table~\ref{table1} compiles the IE achieved for each configuration during off-axis NLK injection in normal injection conditions ($x\approx -8.5~\unit{mm}$, $x^\prime\approx 0 $). 
+Interestingly, the configuration with the largest kick resilience, that of run 1, is not the one with the largest phase space area and IE performance. This could be explained if the phase space deformations of the ellipse at the kicker location for this sextupole setting resulted in a larger $x^\prime/x$ ratio, which would account for a larger kick acceptance and the worse injection performance compared to run 2. 
 
 Lifetime at $60~\unit{mA}$ with uniform filling and bunch-by-bunch (BbB) feedback loop closed was measured at $20~\unit{hr}$ for run 2 best configuration. Lifetime at the same conditions for the reference configuration is $21~\unit{hr}$. No significant chromaticity changes were observed: $(2.33, 2.53)$ in ref. config. vs. $(2.24, 2.39)$ in run 2 best solution.  
 \begin{table}[!h]
 \centering
-\caption{Injection efficiency (IE) of the initial configurations and the best configurations of the optimization runs in working points 1 and 2.} 
+\caption{Injection efficiency (IE) of the initial configurations and the best configurations of the optimization runs in WPs 1 and 2.} 
 \begin{tabular}{cccc}
 \toprule
 \multicolumn{2}{c}{working point 1}         & \multicolumn{2}{c}{working point 2}                \\ \midrule
@@ -133,24 +133,30 @@ run 3         & $87\pm3$                & \multicolumn{1}{l}{} & \multicolumn{1}
 
 
 \subsection{Optimization in Working Point 2}
- SIRIUS current working point has low fractional parts, which amplifies orbit distortions. In recent orbit stability studies, the $(49.20, 14.25)$ point was characterized and the improvement in orbit stability was confirmed. The configuration in this working point was loaded in the machine for nonlinear lattice optimization and the initial injection efficiency was $\sim50\%$. Two optimization runs were carried out. In run 1, the same knobs used in the previous three runs at working point 1 were used. In run 2, the constraint in the B and P families was removed, resulting in 13 chromatic knobs. Out of these, 11 knobs living in the chromaticity response matrix null space were used alongside the 6 achromatic families, totaling 17 knobs. 
+ SIRIUS nominal WP has low fractional parts, which amplifies orbit distortions. In recent orbit stability studies, the $(49.20, 14.25)$ point was characterized and the improvement in orbit stability was confirmed. The configuration in this WP was loaded in the machine for nonlinear lattice optimization and the initial IE was $\sim50\%$. Two optimization runs were carried out. In run 1, the same knobs used in the previous three runs at WP 1 were used. In run 2, the constraint in the B and P families was removed, resulting in 13 chromatic knobs. Out of these, 11 knobs living in the chromaticity response matrix null space were used alongside the 6 achromatic families, totaling 17 knobs. 
  
- During run 1, efficiency was optimized from $20\%$ to $60\%$, worsened back to $20\%$ and optimized again to $40\%$. Lastly, it was optimized from $25\%$ to $30\%$. From the best configuration  of run 1, run 2 was started with the 17-knob setup. The initial efficiency of $35\%$ reached $65\%$, was worsened to $20\%$ and optimized to $40\%$. Lastly, the efficiency was optimized from $20\%$ to $30\%$, approximately.
+ During run 1, IE was optimized from $20\%$ to $60\%$, worsened back to $20\%$ and optimized again to $40\%$. Lastly, it was optimized from $25\%$ to $30\%$. From the best configuration  of run 1, run 2 was started with the 17-knob setup. The initial IE of $35\%$ reached $65\%$, was worsened to $20\%$ and optimized to $40\%$. Lastly, the IE was optimized from $20\%$ to $30\%$, approximately.
 
-TbT BPM data of the kicked stored beam  in the initial configuration and in each run's best solution was acquired and allowed the determination of current losses vs. kicks, shown in Fig.~\ref{fig:loss_kicks_newtunes}, and the reconstruction of phase space, shown in Fig. ~\ref{fig:newtunes_phase}. Table~\ref{table1} compiles injection efficiencies achieved for the configurations in the new tunes during nominal off-axis injection. The configuration found during run 1 rendered the best injection efficiency, the largest kick resilience, a larger lifetime than the initial configuration ($21~\unit{hrs}$, run 1 vs. $18~\unit{hrs}$, initial, at $60~\unit{mA}$), and the largest phase-space area increase.
+TbT BPM data of the kicked stored beam  in the initial configuration and in each run's best solution was acquired and allowed the determination of current losses vs. kicks, shown in Fig.~\ref{fig:loss_kicks_newtunes}, and the reconstruction of phase space, shown in Fig. ~\ref{fig:newtunes_phase}. Table~\ref{table1} compiles injection efficiencies achieved for the configurations in the new tunes during nominal off-axis injection. The configuration found during run 1 rendered the best IE, the largest kick resilience, a larger lifetime than the initial configuration ($21~\unit{hrs}$, run 1 vs. $18~\unit{hrs}$, initial, at $60~\unit{mA}$), and the largest phase-space area increase.
 \begin{figure}[!h]
    \includegraphics[width=\columnwidth]{WEPL087_f3.pdf}
-   \caption{Current losses vs. horizontal dipole kick for the initial configuration and the RCDS solutions at working point 2.}
+   \caption{Current losses vs. horizontal dipole kick for the initial configuration and the RCDS solutions at WP 2.}
    \label{fig:loss_kicks_newtunes}
 \end{figure}
 
 \begin{figure}
    \includegraphics[width=\columnwidth]{WEPL087_f4.pdf}
-   \caption{Measured phase space at SA05 high-beta straight section for the initial configuration and the best RCDS configurations of runs 1 and 2 in working point 2. Color-map indicates the turns. The areas are in $\unit{mm}~\unit{mrad}$. The beam was being kicked horizontally at $680~\unit{\micro rad}$, for the initial configuration, $770~\unit{\micro rad}$ for run 1, and at $720~\unit{\micro rad}$ for run 2. Loss rates of $10\%$, $12\%$ and $12\%$, respectively}
+   \caption{Measured phase space at SA05 high-beta straight section for the initial configuration and the best RCDS configurations of runs 1 and 2 in WP 2. Color-map indicates the turns. The areas are in $\unit{mm}~\unit{mrad}$. The beam was being kicked horizontally at $680~\unit{\micro rad}$, for the initial configuration, $770~\unit{\micro rad}$ for run 1, and at $720~\unit{\micro rad}$ for run 2. Loss rates of $10\%$, $12\%$ and $12\%$, respectively}
    \label{fig:newtunes_phase}
 \end{figure}
+
+\subsection{Optimization in Working Point 3}
+In the $(49.16, 14.22)$ WP , the knobs consisted on the achromatic families plus the SDA1, SDB1, SDP1, SDA3, SDB3, SDP3 and SFA1 families. The scheme for changing knobs while keeping chromaticity constant was different: RCDS freely varied the 13 optimization knobs. The chromaticity changes due to the knobs changes were anticipated using the machine model, and a set of ``correction" families (SDA2, SDB2, SDP2, SFA2, SFB2, and SFP2) were used to cancel them, so that the strengths applied to the machine rendered no changes in chromaticity.  
+
+Two optimization runs were carried out, starting from sextupole settings of the reference configuration. In run 1, starting from about $20\%$ IE, a configuration rendering $83\%$ IE was found and loaded into the machine. The beam's horizontal offset during injection was increased to worsen the IE and run 2 was started from $48\%$ IE. A configuration rendering $80\%$ IE was found and loaded into the machine, rendering an IE of $93\pm3\%$ in normal off-axis injection conditions. Lifetime at $60~\unit{mA}$ was measured at $19.5~\unit{hrs}$. Kick resilience, phase-space and chromaticity were not yet measured by the time of writing. Orbit stability improvements were confirmed by the orbit integrated spectrum density, which decreased by a factor of approximately 2 \cite{Liu:IPAC23-WEOGA2}.
+
 \section{CONCLUSIONS}
-RCDS optimization was applied to SIRIUS storage ring nonlinear lattice to increase the DA and injection efficiency in two working points. In the first of them, injection efficiency was optimized to $98\%$ with a 1-hour reduction in lifetime, while, in the second, starting from about $50\%$, an efficiency of $79\%$ was achieved with no changes to lifetime compared to the reference configuration. In the new working point, the optimization did improve injection efficiency and DA, but was not as effective as in the nominal working point. More optimization experiments exploring different tunes will follow. In particular, we will try to further optimize the best configuration from run 1 at working point 2 and maybe explore neighboring working points.
+RCDS optimization was applied to SIRIUS storage ring nonlinear lattice to increase the DA and IE in three WPs. In WP 1, IE was optimized to $98\%$ with a 1-hour reduction in lifetime, while, in WP 2, starting from about $50\%$, an IE of $79\%$ was achieved with no changes to lifetime compared to the reference configuration. In WP 3, an IE of $93\%$ was reached with a small reduction in beam lifetime. Despite not being fully characterized, this WP and the RCDS-optimized sextupole settings were set as SIRIUS new reference configuration for top-up operations during user's beam.
 \section{ACKNOWLEDGEMENTS}
 M. M. S. Velloso is supported by the São Paulo Research Foundation (FAPESP) via grant \#2022/04162-4. 
 %
@@ -172,7 +178,7 @@ M. M. S. Velloso is supported by the São Paulo Research Foundation (FAPESP) via
 %        \url{doi:10.18429/JACoW-IPAC2021-MOPAB260} 
 
     \bibitem{Liu:IPAC2016-THPMR011}
-        L. Liu, X. R. Resende, A. R. D. Rodrigues, F. H. de Sá,
+        L. Liu, \emph{et al.},
        \textquotedblleft{{I}njection {D}ynamics for {S}irius {U}sing a {N}onlinear {K}icker}\textquotedblright,
        in \emph{Proc. IPAC’16}, Busan, Korea, May 2016, pp. 3406--3408.
        \url{doi:10.18429/JACoW-IPAC2016-THPMR011} 
@@ -232,6 +238,12 @@ M. M. S. Velloso is supported by the São Paulo Research Foundation (FAPESP) via
     % --- complete form (published paper) - JACoW template Feb 2018 ---
     %  in \emph{Proc. 13th International Particle Accelerator Conference (IPAC'22)}, Bangkok, Thailand, Jun. 2022, pp. 1159--1162.
        \url{doi:10.18429/JACoW-IPAC2022-TUPOPT064}
+
+       %\cite{Liu:IPAC23-WEOGA2}
+    \bibitem{Liu:IPAC23-WEOGA2}
+       L. Liu, \emph{et al.},
+       \textquotedblleft{Status of SIRIUS operation with users}\textquotedblright,
+       presented at the IPAC’23, Venice, Italy, May 2023, paper WEOGA2, this conference. 
     
    
 	\end{thebibliography}
